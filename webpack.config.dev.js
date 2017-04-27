@@ -21,7 +21,7 @@ export default {
         exclude: /node_modules/, loaders: ["babel"]
       },
       {
-        test: /\.js$/,
+        test: /\.css$/,
         loaders: ["style", "css"]
       }
     ]
