@@ -17,6 +17,7 @@ app.use(require("webpack-dev-middleware")(compiler, {
   publicPath: config.output.publicPath
 }));
 //Gets a request from the server.
+/* eslint-disable no-console */
 app.get("/", function (req, res) {
   //serves a file to the host
   res.sendFile(path.join(__dirname, "../src/index.html"));
