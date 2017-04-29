@@ -1,8 +1,20 @@
 //You can import css too!, surprising.
-import "./index";
-//Library for formatting numbers
-import numeral from "numeral";
-/*eslint-disable no-console*/
-const courseValue = numeral(1000).format("$0,0.00");
-//string interpolation it seems.
-console.log(`I would pay ${courseValue} for this awesome course!`);
+import {
+  getUsers
+} from "./api/userApi";
+
+//Populate table of users via API call.
+
+getUsers().then(result => {
+  let usersBody = "";
+  result.forEach(function(user) {
+    usersBody += `<tr>
+             <td><a href="#" data-id="${user.id}" class="deleteUser">Delete</a></td>
+             <td>${user.id}</td>
+             <td>${user.firstName}</td>
+             <td>${user.lastName}</td>
+             <td>${user.email}</td>
+             </tr>`
+  });
+  global.document.getElementById("users").innerHTML = usersBody;
+});
