@@ -1,6 +1,6 @@
 //Exporting a function that gives me the BaseUrl
 export default function getBaseUrl(){
- return getQueryStringParameterByName("useMockApi")?"http://localhost:3001":"";
+ return getQueryStringParameterByName("useMockApi")?"http://localhost:3001":"https://secure-sea-28138.herokuapp.com/";
 }
 
 function getQueryStringParameterByName(name, url){
@@ -11,5 +11,4 @@ function getQueryStringParameterByName(name, url){
     if(!results) return null;
     if(!results[2]) return "";
   return decodeURIComponent(results[2].replace(/\+/g,""));
-
 }
